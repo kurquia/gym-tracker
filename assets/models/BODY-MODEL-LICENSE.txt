@@ -1,0 +1,25 @@
+3D body model (assets/models/body.bin)
+
+Based on Z-Anatomy, the libre 3D atlas of anatomy (Gauthier Kervyn,
+Marcin Zielinski, Lluis Vinent and contributors), licensed under
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+https://github.com/Z-Anatomy/Models-of-human-anatomy (commit bb293be, 2024-06-07)
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Z-Anatomy's models are derived from BodyParts3D, (c) The Database Center for
+Life Science (DBCLS). BodyParts3D is now licensed under CC BY 4.0
+(https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); Z-Anatomy
+credits it under its earlier licence, CC BY-SA 2.1 Japan.
+
+Changes made for Gym Tracker (tool/build_body_model.py and
+tool/export_zanatomy.py): took the bones (without the smallest inner ones),
+the muscles and the visible tendons; left out fascia, bursae, sheaths and
+other connective tissue; covered the head with its skin (joined into one
+surface with the eyeballs, holes filled, smoothed) and left out the skull and
+the face, jaw and eye muscles under it; merged the left and right side of
+each muscle;
+named the three trapezius parts by position; decimated the meshes, rotated
+and rescaled them, and stored them in a compact binary format.
+
+body.bin is an adaptation of Z-Anatomy and is shared under the same licence,
+CC BY-SA 4.0. No endorsement by the Z-Anatomy authors or DBCLS is implied.

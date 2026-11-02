@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Collapsed: the routine name, then the live clock · the text. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Chronometer
+            android:id="@+id/clock"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/separator"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" · " />
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

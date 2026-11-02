@@ -1,0 +1,197 @@
+# The hand-written text of the code map, kept general so it stays true as the app grows.
+#
+# Backticks make code, double asterisks make bold. A path in backticks is checked
+# on every run, and a file in lib/ becomes a link. To curate: [files] replaces
+# what a file's own comment says ("data/tables.dart" = "…"); [assets] adds a line.
+
+[big_picture]
+text = """
+Every file belongs to one of four layers. A file may import from its own layer or a lower one, \
+never a higher one, so you can understand the bottom (the database) without knowing anything \
+about the screens. The numbers on the diagram are counted from the code on every run.\
+"""
+cycle = """
+Two files in a cycle import each other, directly or through others. One cycle in `lib/data/` is \
+expected: the DAOs need `AppDatabase`, and `lib/data/database.dart` re-exports them so a screen \
+only has to import that one file.\
+"""
+
+[screens]
+text = """
+Every address the app can go to, tab by tab, read from `lib/router.dart`. Works like the URLs of \
+a website: to open a page the code goes to its address. **full** pages cover the tab bar.\
+"""
+
+[flow]
+text = """
+Screens never keep their own copy of the data. They **watch** a provider, usually a live stream \
+from the database, and they **call** a DAO method when you do something. The write makes the \
+stream emit again, and every screen watching it redraws. It works like a spreadsheet: change one \
+cell and everything depending on it recalculates by itself.\
+"""
+code = """
+// A ConsumerWidget is a widget that can use providers.
+final data = ref.watch(someProvider).value;                  // read + subscribe (step 3)
+...
+onPressed: () => ref.read(databaseProvider).someDao.act(id); // act (step 1)
+"""
+after = """
+The same pattern runs on every screen. Tests swap `databaseProvider` for an in-memory database \
+(`test/test_db.dart`), so the real screens run against throwaway data.\
+"""
+
+[database]
+text = """
+An arrow means "this row belongs to that one": a column holding the other row's id. Click a table \
+to see its columns. When the structure changes, `schemaVersion` goes up and a migration in \
+`lib/data/database.dart` upgrades existing databases, so nothing already recorded is lost.\
+"""
+
+[[where]]
+change = "How something on a screen looks or behaves"
+start = "Find the screen under Screens, or search the file list; all of them are in `lib/features/`"
+
+[[where]]
+change = "A new screen"
+start = "A file in its feature folder + a route in `lib/router.dart`"
+
+[[where]]
+change = "What gets saved, or a new query"
+start = "The DAO of that area in `lib/data/daos/`"
+
+[[where]]
+change = "The data a screen watches"
+start = "`lib/data/providers.dart`"
+
+[[where]]
+change = "A new table or column"
+start = "`lib/data/tables.dart`, then `tool/schema_snapshot.sh`"
+
+[[where]]
+change = "Calculations that need no database"
+start = "`lib/data/workout_logic.dart` (weights, rest, supersets), `lib/data/progress.dart` (charts)"
+
+[[where]]
+change = "Colours, font, button shapes"
+start = "`lib/shared/theme.dart`"
+
+[[where]]
+change = "How kg, dates or the clock are written"
+start = "`lib/shared/format.dart`"
+
+[[where]]
+change = "The 3D muscle figure"
+start = "`lib/features/exercises/body_model/`"
+
+[[where]]
+change = "Which muscles an exercise works"
+start = "`assets/data/curated_muscles.json`"
+
+[[where]]
+change = "This map"
+start = "`tool/code_map_notes.toml` for the text, `tool/code_map_render.py` for the layout, `tool/code_map_template.html` for the colours"
+
+[[folders]]
+name = "android/, linux/"
+about = "The thin native shells Flutter runs inside on each platform. Rarely touched."
+
+[[folders]]
+name = "drift_schemas/"
+about = "A snapshot of the database structure at each version, used to test migrations."
+
+[[folders]]
+name = "packages/"
+about = "Our own small plugin for the workout notification's clock."
+
+[[folders]]
+name = "docs/"
+about = "This map, written by `tool/code_map.py`. Never edit it by hand."
+
+[assets]
+"data/exercises.json" = "The exercise library, from free-exercise-db."
+"data/curated_muscles.json" = "Muscles and roles per exercise, curated by hand."
+"models/body.bin" = "The 3D body, built by `tool/build_body_model.py`."
+
+[[glossary]]
+term = "Widget"
+meaning = "Everything on screen: a button, a row, a whole page. A widget is a description that Flutter redraws whenever its data changes. Like a function `data → picture`."
+
+[[glossary]]
+term = "Stateful / State"
+meaning = "A widget that keeps small local memory, such as the text in a box you're typing into. `setState` changes it and redraws."
+
+[[glossary]]
+term = "BuildContext"
+meaning = "A widget's place in the tree of widgets. The `context` you see everywhere; it's how a widget reaches the theme or the navigator above it."
+
+[[glossary]]
+term = "Consumer…"
+meaning = "`ConsumerWidget` and `ConsumerState` are widgets that can use `ref` to reach providers."
+
+[[glossary]]
+term = "Provider"
+meaning = "Riverpod's shared value or stream, like a cell in a spreadsheet that others depend on. `ref.watch` = read and redraw on change; `ref.read` = read once, e.g. inside a button press."
+
+[[glossary]]
+term = ".family / .autoDispose"
+meaning = "`family` = a provider with a parameter (one exercise's history, by id). `autoDispose` = thrown away when nobody watches it any more."
+
+[[glossary]]
+term = "Notifier"
+meaning = "A provider with methods that change its value. Used for state kept in memory, not in the database."
+
+[[glossary]]
+term = "drift"
+meaning = "The SQLite library. Tables are Dart classes; queries are Dart method chains instead of SQL strings."
+
+[[glossary]]
+term = "DAO"
+meaning = "Data access object: a class holding the queries of one area (workouts, routines, history…). Screens go through these instead of touching the tables."
+
+[[glossary]]
+term = "Schema / migration"
+meaning = "The schema is the structure of the database, numbered by version. A migration is the step that upgrades an existing file from one version to the next without losing data."
+
+[[glossary]]
+term = "build_runner"
+meaning = "The code generator. Reads the drift classes and writes the `.g.dart` files next to them (row classes, query plumbing). Never edit those by hand."
+
+[[glossary]]
+term = "part"
+meaning = "`part 'x.g.dart';` makes another file count as part of this one. That's how generated code joins the file it was generated from."
+
+[[glossary]]
+term = "go_router"
+meaning = "Gives each screen an address like `/exercises/42`, so navigation is “go to this address”."
+
+[[glossary]]
+term = "Sheet / dialog"
+meaning = "A panel sliding up from the bottom / a box in the middle of the screen. Both open above the page and return a result when closed."
+
+[[glossary]]
+term = "Future / Stream"
+meaning = "A value that arrives later (like an `asyncio` awaitable) / a sequence of values over time (like an async generator)."
+
+[[glossary]]
+term = "async*, yield"
+meaning = "A function that produces a Stream, written like a Python generator."
+
+[[glossary]]
+term = "int?, !, ??"
+meaning = "`int?` may be null, like `Optional[int]`. `x!` asserts it isn't. `x ?? y` means `y` when `x` is null."
+
+[[glossary]]
+term = "final / const"
+meaning = "`final` = assigned once. `const` = known at compile time, so Flutter can reuse the object instead of rebuilding it."
+
+[[glossary]]
+term = "extension"
+meaning = "Methods added to an existing class from outside it, without subclassing."
+
+[[glossary]]
+term = "Isolate"
+meaning = "A separate thread with its own memory, like a process in `multiprocessing`: it talks by messages. The notification's Pause button runs in one."
+
+[[glossary]]
+term = "Hot reload"
+meaning = "Puts changed code into the running app and keeps its state, so you see a change without restarting."

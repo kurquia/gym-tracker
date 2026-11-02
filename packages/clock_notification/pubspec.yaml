@@ -1,0 +1,22 @@
+name: clock_notification
+description: The workout notification, drawn natively (a live clock line, or text redrawn every second).
+publish_to: none
+version: 0.0.1
+
+environment:
+  sdk: ^3.13.5
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+# Native only: the app talks to it on the "clock_notification" method channel
+# (lib/features/record/workout_notification.dart). Being a plugin registers it
+# in every Flutter engine, also the background one that runs Pause/Resume.
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.kurquia.clock_notification
+        pluginClass: ClockNotificationPlugin

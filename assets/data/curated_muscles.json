@@ -1,0 +1,1433 @@
+{
+  "about": "Muscles checked by hand per exercise (fine muscles = part ids of the 3D model, see lib/features/exercises/body_model/muscle_map.dart). They replace free-exercise-db's coarse guess for these exercises, in the seed and in the v18 migration. Roles: target, synergist, stabilizer (shown as 'fixator': a muscle that holds a joint or segment still so another can act). The role labels are a classification, not a measurement. Applied at every app start: an exercise whose muscles differ from this file is rewritten. A variant copies a base entry: 'same_as' (entry key), optional 'muscles' (changed role or added muscle) and 'remove' (muscle ids).",
+  "exercises": {
+    "Incline_Dumbbell_Press": {
+      "muscles": [
+        {
+          "id": "clavicular_head_of_pectoralis_major",
+          "role": "target"
+        },
+        {
+          "id": "sternocostal_head_of_pectoralis_major",
+          "role": "synergist"
+        },
+        {
+          "id": "clavicular_part_of_deltoid",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "lateral_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "medial_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "coracobrachialis",
+          "role": "synergist"
+        },
+        {
+          "id": "short_head_of_biceps_brachii",
+          "role": "stabilizer"
+        },
+        {
+          "id": "serratus_anterior",
+          "role": "stabilizer"
+        },
+        {
+          "id": "pectoralis_minor",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Dumbbell_Shoulder_Press": {
+      "muscles": [
+        {
+          "id": "clavicular_part_of_deltoid",
+          "role": "target"
+        },
+        {
+          "id": "acromial_part_of_deltoid",
+          "role": "target"
+        },
+        {
+          "id": "supraspinatus",
+          "role": "synergist"
+        },
+        {
+          "id": "coracobrachialis",
+          "role": "synergist"
+        },
+        {
+          "id": "clavicular_head_of_pectoralis_major",
+          "role": "synergist"
+        },
+        {
+          "id": "lateral_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "medial_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "serratus_anterior",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_upper",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_middle",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_lower",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_triceps_brachii",
+          "role": "stabilizer"
+        },
+        {
+          "id": "long_head_of_biceps_brachii",
+          "role": "stabilizer"
+        },
+        {
+          "id": "infraspinatus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "teres_minor",
+          "role": "stabilizer"
+        },
+        {
+          "id": "subscapularis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "levator_scapulae",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Barbell_Squat": {
+      "muscles": [
+        {
+          "id": "vastus_lateralis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_medialis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_intermedius",
+          "role": "target"
+        },
+        {
+          "id": "gluteus_maximus",
+          "role": "target"
+        },
+        {
+          "id": "adductor_magnus",
+          "role": "synergist"
+        },
+        {
+          "id": "soleus",
+          "role": "synergist"
+        },
+        {
+          "id": "gluteus_medius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "gluteus_minimus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "long_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semitendinosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semimembranosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "medial_head_of_gastrocnemius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "lateral_head_of_gastrocnemius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "quadratus_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "rectus_abdominis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Front_Barbell_Squat": {
+      "same_as": "Barbell_Squat",
+      "muscles": [
+        {
+          "id": "clavicular_part_of_deltoid",
+          "role": "stabilizer"
+        },
+        {
+          "id": "acromial_part_of_deltoid",
+          "role": "stabilizer"
+        },
+        {
+          "id": "clavicular_head_of_pectoralis_major",
+          "role": "stabilizer"
+        },
+        {
+          "id": "coracobrachialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "trapezius_upper",
+          "role": "stabilizer"
+        },
+        {
+          "id": "trapezius_middle",
+          "role": "stabilizer"
+        },
+        {
+          "id": "trapezius_lower",
+          "role": "stabilizer"
+        },
+        {
+          "id": "levator_scapulae",
+          "role": "stabilizer"
+        },
+        {
+          "id": "serratus_anterior",
+          "role": "stabilizer"
+        },
+        {
+          "id": "supraspinatus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Split_Squat_with_Dumbbells": {
+      "muscles": [
+        {
+          "id": "vastus_lateralis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_medialis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_intermedius",
+          "role": "target"
+        },
+        {
+          "id": "gluteus_maximus",
+          "role": "target"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "synergist"
+        },
+        {
+          "id": "adductor_magnus",
+          "role": "synergist"
+        },
+        {
+          "id": "gluteus_medius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "gluteus_minimus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "long_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "short_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semimembranosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semitendinosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "medial_head_of_gastrocnemius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "lateral_head_of_gastrocnemius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "soleus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "quadratus_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "trapezius_upper",
+          "role": "stabilizer"
+        },
+        {
+          "id": "levator_scapulae",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Dumbbell_Lunges": {
+      "same_as": "Split_Squat_with_Dumbbells"
+    },
+    "Barbell_Hip_Thrust": {
+      "muscles": [
+        {
+          "id": "gluteus_maximus",
+          "role": "target"
+        },
+        {
+          "id": "vastus_lateralis",
+          "role": "synergist"
+        },
+        {
+          "id": "vastus_medialis",
+          "role": "synergist"
+        },
+        {
+          "id": "vastus_intermedius",
+          "role": "synergist"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "adductor_magnus",
+          "role": "synergist"
+        },
+        {
+          "id": "gluteus_medius",
+          "role": "synergist"
+        },
+        {
+          "id": "gluteus_minimus",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "short_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semimembranosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semitendinosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "quadratus_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "multifidus_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "rectus_abdominis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Face_Pull": {
+      "muscles": [
+        {
+          "id": "scapular_spinal_part_of_deltoid",
+          "role": "target"
+        },
+        {
+          "id": "infraspinatus",
+          "role": "target"
+        },
+        {
+          "id": "teres_minor",
+          "role": "target"
+        },
+        {
+          "id": "trapezius_middle",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_lower",
+          "role": "synergist"
+        },
+        {
+          "id": "rhomboid_major",
+          "role": "synergist"
+        },
+        {
+          "id": "rhomboid_minor",
+          "role": "synergist"
+        },
+        {
+          "id": "acromial_part_of_deltoid",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_upper",
+          "role": "stabilizer"
+        },
+        {
+          "id": "supraspinatus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Barbell_Bench_Press_-_Medium_Grip": {
+      "muscles": [
+        {
+          "id": "sternocostal_head_of_pectoralis_major",
+          "role": "target"
+        },
+        {
+          "id": "abdominal_part_of_pectoralis_major",
+          "role": "synergist"
+        },
+        {
+          "id": "clavicular_head_of_pectoralis_major",
+          "role": "synergist"
+        },
+        {
+          "id": "clavicular_part_of_deltoid",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "lateral_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "medial_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "coracobrachialis",
+          "role": "synergist"
+        },
+        {
+          "id": "short_head_of_biceps_brachii",
+          "role": "stabilizer"
+        },
+        {
+          "id": "serratus_anterior",
+          "role": "stabilizer"
+        },
+        {
+          "id": "pectoralis_minor",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Leverage_Chest_Press": {
+      "same_as": "Barbell_Bench_Press_-_Medium_Grip"
+    },
+    "Barbell_Incline_Bench_Press_-_Medium_Grip": {
+      "same_as": "Incline_Dumbbell_Press"
+    },
+    "Archer_push-up": {
+      "same_as": "Barbell_Bench_Press_-_Medium_Grip",
+      "muscles": [
+        {
+          "id": "rectus_abdominis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Leg_Press": {
+      "muscles": [
+        {
+          "id": "vastus_lateralis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_medialis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_intermedius",
+          "role": "target"
+        },
+        {
+          "id": "gluteus_maximus",
+          "role": "target"
+        },
+        {
+          "id": "adductor_magnus",
+          "role": "synergist"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "long_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "short_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semimembranosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "semitendinosus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "medial_head_of_gastrocnemius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "lateral_head_of_gastrocnemius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "soleus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Lying_Leg_Curls": {
+      "muscles": [
+        {
+          "id": "semitendinosus",
+          "role": "target"
+        },
+        {
+          "id": "long_head_of_biceps_femoris",
+          "role": "target"
+        },
+        {
+          "id": "short_head_of_biceps_femoris",
+          "role": "target"
+        },
+        {
+          "id": "semimembranosus",
+          "role": "target"
+        },
+        {
+          "id": "gracilis",
+          "role": "synergist"
+        },
+        {
+          "id": "medial_head_of_gastrocnemius",
+          "role": "synergist"
+        },
+        {
+          "id": "lateral_head_of_gastrocnemius",
+          "role": "synergist"
+        }
+      ]
+    },
+    "Romanian_Deadlift": {
+      "muscles": [
+        {
+          "id": "semimembranosus",
+          "role": "target"
+        },
+        {
+          "id": "semitendinosus",
+          "role": "target"
+        },
+        {
+          "id": "long_head_of_biceps_femoris",
+          "role": "target"
+        },
+        {
+          "id": "short_head_of_biceps_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "gluteus_maximus",
+          "role": "synergist"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "synergist"
+        },
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "synergist"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "synergist"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "multifidus_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "quadratus_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "gluteus_medius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "gluteus_minimus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Pullups": {
+      "muscles": [
+        {
+          "id": "latissimus_dorsi",
+          "role": "target"
+        },
+        {
+          "id": "teres_major",
+          "role": "synergist"
+        },
+        {
+          "id": "scapular_spinal_part_of_deltoid",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_biceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "short_head_of_biceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "brachialis",
+          "role": "synergist"
+        },
+        {
+          "id": "brachioradialis",
+          "role": "synergist"
+        },
+        {
+          "id": "sternocostal_head_of_pectoralis_major",
+          "role": "synergist"
+        },
+        {
+          "id": "abdominal_part_of_pectoralis_major",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "rhomboid_major",
+          "role": "synergist"
+        },
+        {
+          "id": "rhomboid_minor",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_middle",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_lower",
+          "role": "synergist"
+        },
+        {
+          "id": "pectoralis_minor",
+          "role": "synergist"
+        },
+        {
+          "id": "infraspinatus",
+          "role": "synergist"
+        },
+        {
+          "id": "coracobrachialis",
+          "role": "synergist"
+        },
+        {
+          "id": "teres_minor",
+          "role": "stabilizer"
+        },
+        {
+          "id": "subscapularis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_brevis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_digitorum_profundus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_pollicis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humero_ulnar_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "radial_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_carpi_radialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_flexor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_flexor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "palmaris_longus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Wide-Grip_Lat_Pulldown": {
+      "same_as": "Pullups",
+      "muscles": [
+        {
+          "id": "infraspinatus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Bent_Over_Barbell_Row": {
+      "muscles": [
+        {
+          "id": "latissimus_dorsi",
+          "role": "target"
+        },
+        {
+          "id": "trapezius_middle",
+          "role": "target"
+        },
+        {
+          "id": "rhomboid_major",
+          "role": "target"
+        },
+        {
+          "id": "rhomboid_minor",
+          "role": "target"
+        },
+        {
+          "id": "teres_major",
+          "role": "synergist"
+        },
+        {
+          "id": "scapular_spinal_part_of_deltoid",
+          "role": "synergist"
+        },
+        {
+          "id": "trapezius_lower",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_biceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "short_head_of_biceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "brachialis",
+          "role": "synergist"
+        },
+        {
+          "id": "brachioradialis",
+          "role": "synergist"
+        },
+        {
+          "id": "long_head_of_triceps_brachii",
+          "role": "synergist"
+        },
+        {
+          "id": "infraspinatus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "teres_minor",
+          "role": "stabilizer"
+        },
+        {
+          "id": "subscapularis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "levator_scapulae",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "gluteus_maximus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "rectus_abdominis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_brevis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_digitorum_profundus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_pollicis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humero_ulnar_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "radial_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Seated_One-arm_Cable_Pulley_Rows": {
+      "same_as": "Bent_Over_Barbell_Row",
+      "remove": [
+        "gluteus_maximus",
+        "rectus_abdominis",
+        "external_abdominal_oblique",
+        "internal_abdominal_oblique"
+      ]
+    },
+    "One-Arm_Dumbbell_Row": {
+      "same_as": "Bent_Over_Barbell_Row",
+      "remove": [
+        "iliocostalis_lumborum",
+        "iliocostalis_thoracis",
+        "longissimus_thoracis",
+        "spinalis_thoracis",
+        "gluteus_maximus",
+        "rectus_abdominis",
+        "external_abdominal_oblique",
+        "internal_abdominal_oblique"
+      ]
+    },
+    "Triceps_Pushdown": {
+      "muscles": [
+        {
+          "id": "long_head_of_triceps_brachii",
+          "role": "target"
+        },
+        {
+          "id": "lateral_head_of_triceps_brachii",
+          "role": "target"
+        },
+        {
+          "id": "medial_head_of_triceps_brachii",
+          "role": "target"
+        },
+        {
+          "id": "anconeus",
+          "role": "synergist"
+        }
+      ]
+    },
+    "Standing_One-Arm_Dumbbell_Triceps_Extension": {
+      "same_as": "Triceps_Pushdown",
+      "muscles": [
+        {
+          "id": "extensor_carpi_radialis_brevis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_digitorum_profundus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_pollicis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humero_ulnar_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "radial_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_carpi_radialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_flexor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_flexor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "palmaris_longus",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Barbell_Curl": {
+      "muscles": [
+        {
+          "id": "long_head_of_biceps_brachii",
+          "role": "target"
+        },
+        {
+          "id": "short_head_of_biceps_brachii",
+          "role": "target"
+        },
+        {
+          "id": "brachialis",
+          "role": "target"
+        },
+        {
+          "id": "brachioradialis",
+          "role": "synergist"
+        },
+        {
+          "id": "clavicular_part_of_deltoid",
+          "role": "stabilizer"
+        },
+        {
+          "id": "coracobrachialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_brevis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "extensor_carpi_radialis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_digitorum_profundus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_pollicis_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_extensor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humero_ulnar_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "radial_head_of_flexor_digitorum_superficialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "flexor_carpi_radialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "humeral_head_of_flexor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "ulnar_head_of_flexor_carpi_ulnaris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "palmaris_longus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Hammer_Curls": {
+      "same_as": "Barbell_Curl",
+      "muscles": [
+        {
+          "id": "brachioradialis",
+          "role": "target"
+        }
+      ]
+    },
+    "Incline_Dumbbell_Curl": {
+      "same_as": "Barbell_Curl",
+      "remove": [
+        "iliocostalis_lumborum",
+        "iliocostalis_thoracis",
+        "longissimus_thoracis",
+        "spinalis_thoracis"
+      ]
+    },
+    "Concentration_Curls": {
+      "same_as": "Barbell_Curl",
+      "muscles": [
+        {
+          "id": "iliocostalis_lumborum",
+          "role": "stabilizer"
+        },
+        {
+          "id": "iliocostalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "longissimus_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "spinalis_thoracis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "stabilizer"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Thigh_Adductor": {
+      "muscles": [
+        {
+          "id": "adductor_longus",
+          "role": "target"
+        },
+        {
+          "id": "adductor_brevis",
+          "role": "target"
+        },
+        {
+          "id": "adductor_magnus",
+          "role": "target"
+        },
+        {
+          "id": "adductor_minimus",
+          "role": "target"
+        },
+        {
+          "id": "gracilis",
+          "role": "synergist"
+        },
+        {
+          "id": "pectineus",
+          "role": "synergist"
+        }
+      ]
+    },
+    "Thigh_Abductor": {
+      "muscles": [
+        {
+          "id": "gluteus_medius",
+          "role": "target"
+        },
+        {
+          "id": "gluteus_minimus",
+          "role": "target"
+        },
+        {
+          "id": "tensor_fasciae_latae",
+          "role": "synergist"
+        },
+        {
+          "id": "gluteus_maximus",
+          "role": "synergist"
+        },
+        {
+          "id": "piriformis",
+          "role": "synergist"
+        },
+        {
+          "id": "sartorius",
+          "role": "synergist"
+        }
+      ]
+    },
+    "Leg_Extensions": {
+      "muscles": [
+        {
+          "id": "vastus_lateralis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_medialis",
+          "role": "target"
+        },
+        {
+          "id": "vastus_intermedius",
+          "role": "target"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "target"
+        }
+      ]
+    },
+    "Decline_Crunch": {
+      "muscles": [
+        {
+          "id": "rectus_abdominis",
+          "role": "target"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "synergist"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "synergist"
+        },
+        {
+          "id": "iliacus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "psoas_major",
+          "role": "stabilizer"
+        },
+        {
+          "id": "sartorius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "stabilizer"
+        },
+        {
+          "id": "tensor_fasciae_latae",
+          "role": "stabilizer"
+        },
+        {
+          "id": "pectineus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "sternocleidomastoid",
+          "role": "stabilizer"
+        },
+        {
+          "id": "scalenus_anterior",
+          "role": "stabilizer"
+        },
+        {
+          "id": "scalenus_medius",
+          "role": "stabilizer"
+        },
+        {
+          "id": "scalenus_posterior",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Leg_raise": {
+      "muscles": [
+        {
+          "id": "iliacus",
+          "role": "target"
+        },
+        {
+          "id": "psoas_major",
+          "role": "target"
+        },
+        {
+          "id": "rectus_abdominis",
+          "role": "target"
+        },
+        {
+          "id": "rectus_femoris",
+          "role": "synergist"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "synergist"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "synergist"
+        },
+        {
+          "id": "tensor_fasciae_latae",
+          "role": "synergist"
+        },
+        {
+          "id": "pectineus",
+          "role": "synergist"
+        },
+        {
+          "id": "sartorius",
+          "role": "synergist"
+        },
+        {
+          "id": "adductor_longus",
+          "role": "synergist"
+        }
+      ]
+    },
+    "Total_abdominal": {
+      "same_as": "Decline_Crunch",
+      "remove": [
+        "sternocleidomastoid",
+        "scalenus_anterior",
+        "scalenus_medius",
+        "scalenus_posterior"
+      ],
+      "muscles": [
+        {
+          "id": "gluteus_maximus",
+          "role": "stabilizer"
+        },
+        {
+          "id": "vastus_lateralis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "vastus_medialis",
+          "role": "stabilizer"
+        },
+        {
+          "id": "vastus_intermedius",
+          "role": "stabilizer"
+        }
+      ]
+    },
+    "Glute_trainer_machine": {
+      "same_as": "Barbell_Hip_Thrust"
+    },
+    "Cable_Crunch": {
+      "muscles": [
+        {
+          "id": "rectus_abdominis",
+          "role": "target"
+        },
+        {
+          "id": "external_abdominal_oblique",
+          "role": "synergist"
+        },
+        {
+          "id": "internal_abdominal_oblique",
+          "role": "synergist"
+        }
+      ]
+    }
+  }
+}

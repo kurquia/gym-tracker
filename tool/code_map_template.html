@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- The look of docs/code-map.html: its styles, and a small script for clicks and search. -->
+<script>document.documentElement.classList.add("js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gym Tracker code map</title>
+<style>
+@font-face { font-family: "Schola"; src: url("../assets/fonts/texgyreschola-regular.otf"); }
+@font-face { font-family: "Schola"; font-style: italic; src: url("../assets/fonts/texgyreschola-italic.otf"); }
+@font-face { font-family: "Schola"; font-weight: 700; src: url("../assets/fonts/texgyreschola-bold.otf"); }
+:root {
+  --bg: #121212; --fg: #e3e3e3; --muted: #9a9a9a; --rule: #3a3a3a; --panel: #1e1e1e;
+  --serif: "Schola", "TeX Gyre Schola", "C059", "Century Schoolbook", Georgia, serif;
+  --mono: ui-monospace, "DejaVu Sans Mono", "Liberation Mono", monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: #f7f6f3; --fg: #1e1e1e; --muted: #666; --rule: #d3d1cb; --panel: #ecebe6; color-scheme: light; }
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 17px; line-height: 1.55; margin: 0; padding: 40px 16px 80px; }
+main { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+.prose { max-width: 70ch; }
+h1, h2, h3 { font-weight: 700; line-height: 1.2; margin: 0; }
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.55rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+section { display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 16px; }
+header { display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--fg); padding-bottom: 24px; }
+code, .mono { font-family: var(--mono); font-size: 0.8em; }
+a, .link { all: unset; color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+code.link { font-family: var(--mono); font-size: 0.8em; }
+a:focus-visible, .link:focus-visible { outline: 2px solid var(--fg); }
+.eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.12rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+.stats, .toc { display: flex; flex-wrap: wrap; gap: 8px 26px; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.stats b { color: var(--fg); font-weight: 600; }
+
+.figure { overflow-x: auto; border: 1px solid var(--rule); padding: 16px; margin: 0; }
+.figure svg { display: block; width: 100%; height: auto; min-width: 640px; }
+svg text { fill: var(--fg); font-family: var(--serif); font-size: 15px; }
+svg text.mono { font-family: var(--mono); font-size: 13px; }
+svg text.note { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+svg text.inv, svg text.inv.note { fill: var(--bg); }
+svg .box { fill: var(--bg); stroke: var(--fg); stroke-width: 1.2; }
+svg .box.dash { stroke-dasharray: 5 4; stroke: var(--muted); }
+svg .box.dark { fill: var(--fg); }
+svg .edge { stroke: var(--fg); stroke-width: 1.2; fill: none; }
+svg .edge.dash { stroke-dasharray: 5 4; }
+svg .edge.dim { stroke: var(--rule); }
+svg .head { fill: var(--fg); }
+svg .node { cursor: pointer; }
+svg .node:hover .box { stroke-width: 2.4; }
+svg .node.sel .box { fill: var(--fg); }
+svg .node.sel text { fill: var(--bg); }
+
+.explorer { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 800px) { .explorer { grid-template-columns: minmax(0, 1fr); } }
+.folders { column-width: 215px; column-gap: 14px; }
+.folders .folder { break-inside: avoid; margin-bottom: 16px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px 14px; align-items: start; }
+.folder { display: flex; flex-direction: column; gap: 5px; scroll-margin-top: 16px; min-width: 0; }
+.folder h3 { font-family: var(--mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; border-bottom: 1px solid var(--fg); padding-bottom: 4px; overflow-wrap: anywhere; }
+.folder.flash h3 { background: var(--fg); color: var(--bg); }
+summary { list-style: none; }
+summary::-webkit-details-marker { display: none; }
+.file { font-family: var(--mono); font-size: 0.72rem; text-align: left; cursor: pointer; background: var(--bg); color: var(--fg); border: 1px solid var(--rule); padding: 5px 7px; display: flex; justify-content: space-between; gap: 8px; min-width: 0; }
+.file span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; }
+.file:hover { border-color: var(--fg); }
+.file:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.file.uses { border: 1.5px solid var(--fg); }
+.file.usedby { border: 1.5px dashed var(--fg); }
+.file.dim { opacity: 0.38; }
+details.hide { display: none; }
+.file.sel { background: var(--fg); color: var(--bg); border-color: var(--fg); opacity: 1; }
+.file.sel span:last-child { color: var(--bg); }
+.panel { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; background: var(--panel); padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; font-size: 0.95rem; }
+.info { display: none; flex-direction: column; gap: 10px; padding: 12px 10px; background: var(--panel); font-size: 0.92rem; min-width: 0; }
+.info h3 { font-family: var(--mono); font-size: 0.8rem; overflow-wrap: anywhere; }
+.info ul { margin: 4px 0 0; padding: 0; list-style: none; }
+.info li { font-family: var(--mono); font-size: 0.72rem; overflow-wrap: anywhere; }
+details[open] > .info { display: flex; }
+.tablelist { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px 14px; align-items: start; }
+/* With scripts a click fills the side panel; without them a row opens in place. */
+.js .tablelist { display: none; }
+html:not(.js) .js-only { display: none; }
+html:not(.js) .link, html:not(.js) .file { cursor: auto; }
+html:not(.js) .link { text-decoration: none; }
+html:not(.js) .file { cursor: pointer; }
+html:not(.js) button.file { cursor: auto; }
+html:not(.js) .explorer { grid-template-columns: minmax(0, 1fr); }
+html:not(.js) svg .node { cursor: auto; }
+.panel h3 { font-family: var(--mono); font-size: 0.86rem; overflow-wrap: anywhere; }
+.panel ul { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.panel li { font-family: var(--mono); font-size: 0.72rem; overflow-wrap: anywhere; }
+.chips { font-family: var(--mono); font-size: 0.72rem; line-height: 1.7; margin-top: 4px; overflow-wrap: anywhere; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.82rem; color: var(--muted); }
+.swatch { display: inline-block; width: 22px; height: 12px; vertical-align: -1px; margin-right: 5px; border: 1.5px solid var(--fg); }
+.swatch.d { border-style: dashed; }
+.swatch.s { background: var(--fg); }
+input[type=search] { font-family: var(--mono); font-size: 0.8rem; background: var(--panel); color: var(--fg); border: 1px solid var(--rule); padding: 6px 9px; width: 260px; max-width: 100%; }
+input[type=search]:focus { outline: 2px solid var(--fg); }
+
+.route { padding-left: calc(7px + var(--depth) * 12px); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 36px; align-items: start; }
+.cols > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; vertical-align: top; padding: 7px 12px 7px 0; border-bottom: 1px solid var(--rule); }
+th { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+td.num { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; text-align: right; padding-left: 12px; padding-right: 0; }
+.rows { display: flex; flex-direction: column; font-size: 0.92rem; }
+.rows > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.rows .name { font-family: var(--mono); font-size: 0.76rem; overflow-wrap: anywhere; }
+.rows .num { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+.rows .about { grid-column: 1 / -1; color: var(--muted); font-size: 0.86rem; }
+pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background: var(--panel); padding: 14px 16px; overflow-x: auto; margin: 0; }
+dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 9px 20px; max-width: 86ch; }
+dt { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; padding-top: 3px; }
+dd { margin: 0; }
+@media (max-width: 560px) { dl { grid-template-columns: minmax(0, 1fr); gap: 2px; } dd { margin-bottom: 10px; } }
+</style>
+</head>
+<body>
+<main>
+  <!-- tool/code_map.py replaces everything inside main with the page. -->
+  <h1>This is only the template</h1>
+  <p class="prose">It holds the colours of the code map and nothing else. The map itself is <a href="../docs/code-map.html">docs/code-map.html</a>.</p>
+</main>
+<script>
+// Everything on the page is already there; this adds clicks and search.
+const explorer = document.querySelector("[data-start]");
+const entries = [...document.querySelectorAll("[data-pick]")];
+const panel = document.getElementById("panel");
+const tablePanel = document.getElementById("table-panel");
+const entry = f => entries.find(e => e.dataset.pick === f);
+
+function select(f) {
+  const chosen = entry(f), uses = chosen.dataset.uses.split(" "), usedBy = chosen.dataset.usedby.split(" ");
+  entries.forEach(e => {
+    const g = e.dataset.pick, row = e.firstElementChild;
+    row.classList.toggle("sel", g === f);
+    row.classList.toggle("uses", uses.includes(g));
+    row.classList.toggle("usedby", usedBy.includes(g));
+    row.classList.toggle("dim", g !== f && !uses.includes(g) && !usedBy.includes(g));
+  });
+  panel.innerHTML = chosen.querySelector(".info").innerHTML;
+  try { localStorage.setItem("codemap-file", f); } catch (e) {}
+}
+function search(query) {
+  const q = query.trim().toLowerCase();
+  entries.forEach(e => e.classList.toggle("hide", !!q && !e.textContent.toLowerCase().includes(q)));
+  document.querySelectorAll(".folder[data-group]").forEach(g => {
+    g.hidden = !!q && !g.querySelector("details:not(.hide)");
+  });
+}
+function openFile(f) {
+  select(f);
+  document.getElementById("files").scrollIntoView({ behavior: "smooth" });
+}
+function selectTable(name) {
+  document.querySelectorAll("[data-table]").forEach(g => g.classList.toggle("sel", g.dataset.table === name));
+  tablePanel.innerHTML = document.querySelector(`[data-table-info="${name}"] .info`).innerHTML;
+}
+function openFolder(name) {
+  const folder = [...document.querySelectorAll(".folder[data-group]")].find(g => g.dataset.group.startsWith(name));
+  folder.scrollIntoView({ behavior: "smooth", block: "start" });
+  folder.classList.add("flash");
+  setTimeout(() => folder.classList.remove("flash"), 900);
+}
+
+document.addEventListener("click", e => {
+  const pick = e.target.closest("[data-pick] > summary");
+  if (pick) { e.preventDefault(); return select(pick.parentElement.dataset.pick); }
+  const link = e.target.closest("[data-file]");
+  if (link && link.dataset.file) return openFile(link.dataset.file);
+  const box = e.target.closest("[data-box]");
+  if (box) return entry(box.dataset.box) ? openFile(box.dataset.box) : openFolder(box.dataset.box);
+  const table = e.target.closest("[data-table]");
+  if (table) return selectTable(table.dataset.table);
+  const go = e.target.closest("[data-goto]");
+  if (go) selectTable(go.dataset.goto);
+});
+document.getElementById("search").addEventListener("input", e => search(e.target.value));
+
+let start = explorer.dataset.start;
+try { const s = localStorage.getItem("codemap-file"); if (s && entry(s)) start = s; } catch (e) {}
+select(start);
+selectTable(document.querySelector("[data-start-table]").dataset.startTable);
+if (location.protocol === "file:") {
+  const day = new Date(document.lastModified).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  document.getElementById("updated").textContent = ` · changed ${day}`;
+}
+</script>
+</body>
+</html>
